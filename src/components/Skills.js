@@ -38,9 +38,9 @@ export default class Skills extends React.Component {
               name="resume-section-name"
               placeholder="Skills"
             />
-            <div class="line"></div>
+            <div className="line"></div>
           </div>
-          <div class="line"></div>
+          <div className="line"></div>
           <div className="form--inputs">
             <label>Skill Name</label>
             <input
@@ -48,9 +48,9 @@ export default class Skills extends React.Component {
               name="resume-skill-name"
               placeholder="Programming Languages"
             />
-            <div class="line"></div>
+            <div className="line"></div>
           </div>
-          <div class="line"></div>
+          <div className="line"></div>
           <div className="form--inputs">
             <label>Skill Details</label>
             <div>

@@ -13,7 +13,7 @@ export default class Education extends React.Component {
               name="resume-education"
               placeholder="Education"
             />
-            <div class="line"></div>
+            <div className="line"></div>
           </div>
           <div className="form--inputs">
             <label>Schools Name</label>
@@ -22,7 +22,7 @@ export default class Education extends React.Component {
               name="resume-school"
               placeholder="University of California, Davis"
             />
-            <div class="line"></div>
+            <div className="line"></div>
           </div>
           <div className="form--inputs">
             <label>School Location</label>
@@ -31,12 +31,12 @@ export default class Education extends React.Component {
               name="resume-school-location"
               placeholder="Davis, CA"
             />
-            <div class="line"></div>
+            <div className="line"></div>
           </div>
           <div className="form--inputs">
             <label>Degree</label>
             <input type="text" name="resume-degree" placeholder="BA" />
-            <div class="line"></div>
+            <div className="line"></div>
           </div>
           <div className="form--inputs">
             <label>Major</label>
@@ -45,22 +45,22 @@ export default class Education extends React.Component {
               name="resume-degree"
               placeholder="Chicano Studies"
             />
-            <div class="line"></div>
+            <div className="line"></div>
           </div>
           <div className="form--inputs">
             <label>GPA</label>
             <input type="text" name="resume-gpa" placeholder="3.4" />
-            <div class="line"></div>
+            <div className="line"></div>
           </div>
           <div className="form--inputs">
             <label>Start Date</label>
             <input type="text" name="resume-start" placeholder="Sep 2018" />
-            <div class="line"></div>
+            <div className="line"></div>
           </div>
           <div className="form--inputs">
             <label>End Date</label>
             <input type="text" name="resume-degree" placeholder="Jun 2022" />
-            <div class="line"></div>
+            <div className="line"></div>
           </div>
         </fieldset>
       </form>

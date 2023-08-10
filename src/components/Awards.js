@@ -14,6 +14,7 @@ export default class Awards extends React.Component {
               placeholder="Awards"
             />
           </div>
+          <div className="line"></div>
         </fieldset>
       </form>
     );

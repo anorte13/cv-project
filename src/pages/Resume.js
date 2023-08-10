@@ -10,7 +10,7 @@ export default class Resume extends React.Component {
   constructor() {
     super();
     this.state = {
-      selectedComponent: null,
+      selectedComponent: "Profile",
     };
   }
   handleComponentClick = (componentName) => {
@@ -36,6 +36,7 @@ export default class Resume extends React.Component {
     }
   };
   render() {
+    console.log("Rendered");
     return (
       <main>
         <div className="resume--title">

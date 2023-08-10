@@ -13,7 +13,7 @@ export default class Projects extends React.Component {
               name="resume-section-projects"
               placeholder="Projects"
             />
-            <div class="line"></div>
+            <div className="line"></div>
           </div>
         </fieldset>
       </form>

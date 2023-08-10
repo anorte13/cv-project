@@ -1,6 +1,29 @@
 import React from "react";
 
 export default class Profile extends React.Component {
+  constructor() {
+    super();
+    this.state = JSON.parse(localStorage.getItem("profileData")) || {
+      fullName: "",
+      email: "",
+      phone: "",
+      location: "",
+      link: "",
+    };
+  }
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value,
+    });
+  };
+  componentDidMount() {
+    this.setState(JSON.parse(localStorage.getItem("profileData")));
+  }
+  //Runs anytime there are changes to state or props.
+  componentDidUpdate() {
+    localStorage.setItem("profileData", JSON.stringify(this.state));
+  }
   render() {
     return (
       <form>
@@ -8,44 +31,58 @@ export default class Profile extends React.Component {
           <h1 className="profile--title">YOUR PERSONAL INFO</h1>
           <div className="form--inputs">
             <label>Full Name</label>
-            <input type="text" name="resume-name" placeholder="Micheal Scott" />
-            <div class="line"></div>
+            <input
+              type="text"
+              name="fullName"
+              placeholder="Micheal Scott"
+              onChange={(e) => this.handleChange(e)}
+              value={this.state.fullName}
+            />
+            <div className="line"></div>
           </div>
           <div className="form--inputs">
             <label>Email</label>
             <input
+              name="email"
               type="text"
-              name="resume-email"
               placeholder="michealscott@gmail.com"
+              onChange={(e) => this.handleChange(e)}
+              value={this.state.email}
             />
-            <div class="line"></div>
+            <div className="line"></div>
           </div>
           <div className="form--inputs">
             <label>Phone Number</label>
             <input
               type="text"
-              name="resume-number"
+              name="phone"
               placeholder="(555) 123-4567"
+              onChange={(e) => this.handleChange(e)}
+              value={this.state.phone}
             />
-            <div class="line"></div>
+            <div className="line"></div>
           </div>
           <div className="form--inputs">
             <label>Location</label>
             <input
               type="text"
-              name="resume-location"
+              name="location"
               placeholder="Scranton, PA"
+              onChange={(e) => this.handleChange(e)}
+              value={this.state.location}
             />
-            <div class="line"></div>
+            <div className="line"></div>
           </div>
           <div className="form--inputs">
             <label>Link</label>
             <input
               type="text"
-              name="resume-link"
+              name="link"
               placeholder="michealscoolwebsite.com"
+              onChange={(e) => this.handleChange(e)}
+              value={this.state.link}
             />
-            <div class="line"></div>
+            <div className="line"></div>
           </div>
         </fieldset>
       </form>
