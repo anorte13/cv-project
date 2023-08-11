@@ -1,10 +1,25 @@
 import React from "react";
+import ProjectsForm from "./helpers/projectsForm";
 
 export default class Projects extends React.Component {
+  constructor() {
+    super();
+    this.state = JSON.parse(localStorage.getItem("projects")) || {
+      projects: [],
+    };
+  }
+  addProject = () => {
+    this.setState((prevState) => ({
+      projects: [...prevState.projects, {}],
+    }));
+  };
+  componentDidUpdate() {
+    localStorage.setItem("projects", JSON.stringify(this.state));
+  }
   render() {
     return (
-      <form>
-        <fieldset className="resume--form">
+      <div className="wrapper">
+        <div className="resume--form">
           <h1 className="profile--title">YOUR PROJECTS</h1>
           <div className="form--inputs">
             <label>Section Heading</label>
@@ -15,8 +30,15 @@ export default class Projects extends React.Component {
             />
             <div className="line"></div>
           </div>
-        </fieldset>
-      </form>
+          <div className="thick-line"></div>
+          {this.state.projects.map((project, index) => (
+            <ProjectsForm key={index} id={index} />
+          ))}
+        </div>
+        <button className="resume--button" onClick={this.addProject}>
+          Add Project
+        </button>
+      </div>
     );
   }
 }
