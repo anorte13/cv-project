@@ -31,10 +31,10 @@ export default class Projects extends React.Component {
             <div className="line"></div>
           </div>
           <div className="thick-line"></div>
-          {this.state.projects.map((project, index) => (
-            <ProjectsForm key={index} id={index} />
-          ))}
         </div>
+        {this.state.projects.map((project, index) => (
+          <ProjectsForm key={index} id={index} />
+        ))}
         <button className="resume--button" onClick={this.addProject}>
           Add Project
         </button>

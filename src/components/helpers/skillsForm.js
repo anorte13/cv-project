@@ -44,6 +44,7 @@ export default class SkillForm extends React.Component {
             />
             <div className="line"></div>
           </div>
+          <div className="thick-line"></div>
         </fieldset>
       </form>
     );

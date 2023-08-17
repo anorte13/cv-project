@@ -108,6 +108,7 @@ export default class EdForm extends React.Component {
             />
             <div className="line"></div>
           </div>
+          <div className="thick-line"></div>
         </fieldset>
       </form>
     );

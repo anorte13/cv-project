@@ -35,8 +35,11 @@ export default class Resume extends React.Component {
         return null;
     }
   };
+
+  handleClick() {
+    console.log(localStorage.getItem("awards"));
+  }
   render() {
-    console.log("Rendered");
     return (
       <main>
         <div className="resume--title">
@@ -85,7 +88,9 @@ export default class Resume extends React.Component {
                 </div>
               </div>
             </nav>
-            <button className="resume--make--button">MAKE</button>
+            <button className="resume--make--button" onClick={this.handleClick}>
+              MAKE
+            </button>
           </div>
           <div className="resume--forms">{this.renderComponent()}</div>
           <div className="resume--generator"></div>

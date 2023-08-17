@@ -14,6 +14,7 @@ export default class Skills extends React.Component {
       skillsSet: [...prevState.skillsSet, {}],
     }));
   };
+
   componentDidUpdate() {
     localStorage.setItem("skillsSet", JSON.stringify(this.state));
   }
@@ -32,10 +33,10 @@ export default class Skills extends React.Component {
             <div className="line"></div>
           </div>
           <div className="thick-line"></div>
-          {this.state.skillsSet.map((skill, index) => (
-            <SkillForm key={index} id={index} />
-          ))}
         </div>
+        {this.state.skillsSet.map((skill, index) => (
+          <SkillForm key={index} id={index} />
+        ))}
         <button className="resume--button" onClick={this.addSkill}>
           Add Skill
         </button>

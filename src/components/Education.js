@@ -4,7 +4,7 @@ import EdForm from "./helpers/educationForm";
 export default class Education extends React.Component {
   constructor() {
     super();
-    this.state = JSON.parse(localStorage.getItem("educationBackground")) || {
+    this.state = JSON.parse(localStorage.getItem("educationExperience")) || {
       educationBackgrounds: [],
     };
   }
@@ -14,7 +14,7 @@ export default class Education extends React.Component {
     }));
   };
   componentDidUpdate() {
-    localStorage.setItem("educationBackground", JSON.stringify(this.state));
+    localStorage.setItem("educationExperience", JSON.stringify(this.state));
   }
   render() {
     return (
@@ -31,10 +31,10 @@ export default class Education extends React.Component {
             <div className="line"></div>
           </div>
           <div className="thick-line"></div>
-          {this.state.educationBackgrounds.map((work, index) => (
-            <EdForm key={index} id={index} />
-          ))}
         </div>
+        {this.state.educationBackgrounds.map((work, index) => (
+          <EdForm key={index} id={index} />
+        ))}
         <button className="resume--button" onClick={this.addEducation}>
           Add School
         </button>

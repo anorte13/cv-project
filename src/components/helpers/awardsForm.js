@@ -1,15 +1,13 @@
 import React from "react";
 
-export default class ProjectsForm extends React.Component {
+export default class AwardsForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = JSON.parse(
-      localStorage.getItem(`project${this.props.id}`)
-    ) || {
-      projectName: "",
-      projectDescription: "",
-      projectLink: "",
-      projectTools: "",
+    this.state = JSON.parse(localStorage.getItem(`award${this.props.id}`)) || {
+      awardName: "",
+      awardDate: "",
+      awarder: "",
+      summary: "",
     };
   }
   handleChange = (event) => {
@@ -19,54 +17,54 @@ export default class ProjectsForm extends React.Component {
     });
   };
   componentDidUpdate() {
-    localStorage.setItem(`project${this.props.id}`, JSON.stringify(this.state));
+    localStorage.setItem(`award${this.props.id}`, JSON.stringify(this.state));
   }
   render() {
     return (
       <form>
         <fieldset className="resume--form">
           <div className="form--inputs">
-            <label>Project Name</label>
+            <label>Award Name</label>
             <input
               type="text"
-              name="projectName"
-              placeholder="The Dundies"
+              name="awardName"
+              placeholder="Salesman of the Year"
               onChange={(e) => this.handleChange(e)}
-              value={this.state.projectName}
+              value={this.state.awardName}
             />
             <div className="line"></div>
           </div>
           <div className="line"></div>
           <div className="form--inputs">
-            <label>Project Description</label>
+            <label>Award Date</label>
             <input
               type="text"
-              name="projectDescription"
-              placeholder="A community award ceremony for employees."
+              name="awardDate"
+              placeholder="May 2015"
               onChange={(e) => this.handleChange(e)}
-              value={this.state.projectDescription}
+              value={this.state.awardDate}
             />
             <div className="line"></div>
           </div>
           <div className="form--inputs">
-            <label>Link to Project</label>
+            <label>Awarder</label>
             <input
               type="text"
-              name="projectLink"
-              placeholder="http://thedundies.com"
+              name="awarder"
+              placeholder="Dunder Mifflin"
               onChange={(e) => this.handleChange(e)}
-              value={this.state.projectLink}
+              value={this.state.awarder}
             />
             <div className="line"></div>
           </div>
           <div className="form--inputs">
-            <label>Tools Used</label>
+            <label>Summary</label>
             <input
               type="text"
-              name="projectTools"
-              placeholder="Microsoft Office"
+              name="summary"
+              placeholder="Recognized for being the best salesman"
               onChange={(e) => this.handleChange(e)}
-              value={this.state.projectTools}
+              value={this.state.summary}
             />
             <div className="line"></div>
           </div>

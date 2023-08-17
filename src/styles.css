@@ -127,7 +127,7 @@ body {
   cursor: pointer;
 }
 .resume--forms {
-  width: 30%;
+  width: 33%;
   height: 100vh;
   border: 0.1px solid rgb(159, 156, 156, 0.3);
   border-top: 0px solid;
@@ -275,4 +275,7 @@ input:focus + .line:after {
   background-color: #5643cc;
   color: #ffffff;
   cursor: pointer;
+}
+form {
+  padding: auto;
 }
