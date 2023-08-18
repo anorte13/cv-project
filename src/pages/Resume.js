@@ -37,7 +37,67 @@ export default class Resume extends React.Component {
   };
 
   handleClick() {
-    console.log(localStorage.getItem("awards"));
+    const profile = JSON.parse(localStorage.getItem("profileData"));
+    const workKeys = [];
+    const educationKeys = [];
+    const skillKeys = [];
+    const projectKeys = [];
+    const awardKeys = [];
+
+    const combinedData = {
+      profile: profile,
+      work: [],
+      education: [],
+      skills: [],
+      projects: [],
+      awards: [],
+    };
+
+    for (let i = 0; i < 5; i++) {
+      const workKey = `workDetails${i}`;
+      const educationKey = `EdDetails${i}`;
+      const skillKey = `skills${i}`;
+      const projectKey = `project${i}`;
+      const awardKey = `award${i}`;
+
+      workKeys.push(workKey);
+      educationKeys.push(educationKey);
+      skillKeys.push(skillKey);
+      projectKeys.push(projectKey);
+      awardKeys.push(awardKey);
+    }
+
+    for (const key of workKeys) {
+      const data = JSON.parse(localStorage.getItem(key));
+      if (data) {
+        combinedData.work.push(data);
+      }
+    }
+    for (const key of educationKeys) {
+      const data = JSON.parse(localStorage.getItem(key));
+      if (data) {
+        combinedData.education.push(data);
+      }
+    }
+    for (const key of skillKeys) {
+      const data = JSON.parse(localStorage.getItem(key));
+      if (data) {
+        combinedData.skills.push(data);
+      }
+    }
+    for (const key of projectKeys) {
+      const data = JSON.parse(localStorage.getItem(key));
+      if (data) {
+        combinedData.projects.push(data);
+      }
+    }
+    for (const key of awardKeys) {
+      const data = JSON.parse(localStorage.getItem(key));
+      if (data) {
+        combinedData.awards.push(data);
+      }
+    }
+    console.log(combinedData);
   }
   render() {
     return (
