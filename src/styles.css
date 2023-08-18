@@ -279,3 +279,16 @@ input:focus + .line:after {
 form {
   padding: auto;
 }
+@media (max-width: 768px) {
+  .resume--wrapper {
+    flex-direction: column;
+  }
+  .resume--sections,
+  .resume--forms,
+  .resume--generator {
+    width: 100%;
+  }
+  .resume--button {
+    margin-right: 15rem;
+  }
+}
