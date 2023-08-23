@@ -6,12 +6,19 @@ export default class Projects extends React.Component {
     super();
     this.state = JSON.parse(localStorage.getItem("projects")) || {
       projects: [],
+      projectHeading: "",
     };
   }
   addProject = () => {
     this.setState((prevState) => ({
       projects: [...prevState.projects, {}],
     }));
+  };
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value,
+    });
   };
   componentDidUpdate() {
     localStorage.setItem("projects", JSON.stringify(this.state));
@@ -25,8 +32,10 @@ export default class Projects extends React.Component {
             <label>Section Heading</label>
             <input
               type="text"
-              name="resume-section-projects"
+              name="projectHeading"
               placeholder="Projects"
+              onChange={(e) => this.handleChange(e)}
+              value={this.state.projectHeading}
             />
             <div className="line"></div>
           </div>

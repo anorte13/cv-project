@@ -5,12 +5,14 @@ import Work from "../components/Work";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import Awards from "../components/Awards";
+import Generator from "../components/resumeGenerator";
 
 export default class Resume extends React.Component {
   constructor() {
     super();
     this.state = {
       selectedComponent: "Profile",
+      resumeData: "",
     };
   }
   handleComponentClick = (componentName) => {
@@ -97,8 +99,14 @@ export default class Resume extends React.Component {
         combinedData.awards.push(data);
       }
     }
-    console.log(combinedData);
+    this.handleChange(combinedData);
   }
+
+  handleChange = (data) => {
+    this.setState({
+      resumeData: data,
+    });
+  };
   render() {
     return (
       <main>
@@ -148,12 +156,17 @@ export default class Resume extends React.Component {
                 </div>
               </div>
             </nav>
-            <button className="resume--make--button" onClick={this.handleClick}>
+            <button
+              className="resume--make--button"
+              onClick={() => this.handleClick()}
+            >
               MAKE
             </button>
           </div>
           <div className="resume--forms">{this.renderComponent()}</div>
-          <div className="resume--generator"></div>
+          <div className="resume--generator">
+            <Generator data={this.state.resumeData} />
+          </div>
         </div>
       </main>
     );

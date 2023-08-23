@@ -6,6 +6,7 @@ export default class Awards extends React.Component {
     super();
     this.state = JSON.parse(localStorage.getItem("awards")) || {
       awards: [],
+      awardHeading: "",
     };
   }
   addAward = () => {
@@ -17,7 +18,12 @@ export default class Awards extends React.Component {
   componentDidUpdate() {
     localStorage.setItem("awards", JSON.stringify(this.state));
   }
-
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value,
+    });
+  };
   render() {
     return (
       <div className="wrapper">
@@ -27,8 +33,10 @@ export default class Awards extends React.Component {
             <label>Section Heading</label>
             <input
               type="text"
-              name="resume-section-name"
+              name="awardHeading"
               placeholder="Awards"
+              onChange={(e) => this.handleChange(e)}
+              value={this.state.awardHeading}
             />
             <div className="line"></div>
           </div>

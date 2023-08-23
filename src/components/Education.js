@@ -6,6 +6,7 @@ export default class Education extends React.Component {
     super();
     this.state = JSON.parse(localStorage.getItem("educationExperience")) || {
       educationBackgrounds: [],
+      educationHeading: "",
     };
   }
   addEducation = () => {
@@ -16,6 +17,12 @@ export default class Education extends React.Component {
   componentDidUpdate() {
     localStorage.setItem("educationExperience", JSON.stringify(this.state));
   }
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value,
+    });
+  };
   render() {
     return (
       <div className="wrapper">
@@ -25,8 +32,10 @@ export default class Education extends React.Component {
             <label>Section Heading</label>
             <input
               type="text"
-              name="resume-education"
+              name="educationHeading"
               placeholder="Education"
+              onChange={(e) => this.handleChange(e)}
+              value={this.state.educationHeading}
             />
             <div className="line"></div>
           </div>

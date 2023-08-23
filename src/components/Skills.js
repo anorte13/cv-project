@@ -6,6 +6,7 @@ export default class Skills extends React.Component {
     super();
     this.state = JSON.parse(localStorage.getItem("skillsSet")) || {
       skillsSet: [],
+      skillHeading: "",
     };
   }
 
@@ -18,6 +19,13 @@ export default class Skills extends React.Component {
   componentDidUpdate() {
     localStorage.setItem("skillsSet", JSON.stringify(this.state));
   }
+
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value,
+    });
+  };
   render() {
     return (
       <div className="wrapper">
@@ -27,8 +35,10 @@ export default class Skills extends React.Component {
             <label>Section Heading</label>
             <input
               type="text"
-              name="resume-section-name"
+              name="skillHeading"
               placeholder="Skills"
+              onChange={(e) => this.handleChange(e)}
+              value={this.state.skillHeading}
             />
             <div className="line"></div>
           </div>
