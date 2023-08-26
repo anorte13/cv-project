@@ -1,25 +1,26 @@
-const deleteWork = () => {
-  const work = [...this.state.workExperiences];
-  const id = work.length - 1;
-  const deletedWork = work.pop();
+//Takes a a parameter 'arrayOfObjects' which is the a state variable that holds an array of objects.
+//item & obj recieve the key names for localStorage objects to be able to read and update.
+//setState receives the setState function from within the component.
 
-  if (deletedWork && deletedWork.id) {
-    const storedData = JSON.parse(localStorage.getItem("workExperience")) || {
-      workExperiences: [],
+export const deleteWork = (arrayOfObjects, item, obj, setState) => {
+  const items = [...arrayOfObjects];
+  const id = items.length - 1;
+  const deletedItem = items.pop();
+
+  if (deletedItem && deletedItem.id) {
+    const storedData = JSON.parse(localStorage.getItem(obj)) || {
+      arrayOfObjects: [],
     };
 
-    const updatedWorkExperiences = storedData.workExperiences.filter(
-      (workExp) => workExp.id !== deletedWork.id
+    const updatedItems = storedData[obj].filter(
+      (item) => item.id !== deletedItem.id
     );
-
-    localStorage.setItem(
-      "workExperience",
-      JSON.stringify({ workExperiences: updatedWorkExperiences })
-    );
-    localStorage.removeItem(`workDetails${id}`);
+    storedData[obj] = updatedItems;
+    localStorage.setItem(obj, JSON.stringify({ [obj]: updatedItems }));
+    localStorage.removeItem(`${item}${id}`);
   }
 
-  this.setState({
-    workExperiences: work,
+  setState({
+    [obj]: items,
   });
 };

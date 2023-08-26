@@ -1,4 +1,5 @@
 import React from "react";
+import { deleteWork } from "../functions/delete";
 import WorkForm from "./helpers/workForm";
 
 export default class Work extends React.Component {
@@ -14,30 +15,10 @@ export default class Work extends React.Component {
       workExperience: [...prevState.workExperience, { id: Date.now() }],
     }));
   };
-  deleteWork = () => {
+
+  delete = () => {
     const work = [...this.state.workExperience];
-    const id = work.length - 1;
-    const deletedWork = work.pop();
-
-    if (deletedWork && deletedWork.id) {
-      const storedData = JSON.parse(localStorage.getItem("workExperience")) || {
-        workExperience: [],
-      };
-
-      const updatedWorkExperiences = storedData.workExperience.filter(
-        (workExp) => workExp.id !== deletedWork.id
-      );
-
-      localStorage.setItem(
-        "workExperience",
-        JSON.stringify({ workExperience: updatedWorkExperiences })
-      );
-      localStorage.removeItem(`workDetails${id}`);
-    }
-
-    this.setState({
-      workExperience: work,
-    });
+    deleteWork(work, "workDetails", "workExperience", this.setState.bind(this));
   };
 
   componentDidUpdate() {
@@ -73,7 +54,7 @@ export default class Work extends React.Component {
         <button className="resume--button" onClick={this.addWorkExperience}>
           Add Work
         </button>
-        <button className="resume--button" onClick={this.deleteWork}>
+        <button className="resume--button" onClick={this.delete}>
           Delete Work
         </button>
       </div>

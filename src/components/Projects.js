@@ -1,4 +1,5 @@
 import React from "react";
+import { deleteWork } from "../functions/delete";
 import ProjectsForm from "./helpers/projectsForm";
 
 export default class Projects extends React.Component {
@@ -11,9 +12,15 @@ export default class Projects extends React.Component {
   }
   addProject = () => {
     this.setState((prevState) => ({
-      projects: [...prevState.projects, {}],
+      projects: [...prevState.projects, { id: Date.now() }],
     }));
   };
+
+  delete = () => {
+    const project = [...this.state.projects];
+    deleteWork(project, "project", "projects", this.setState.bind(this));
+  };
+
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({
@@ -46,6 +53,9 @@ export default class Projects extends React.Component {
         ))}
         <button className="resume--button" onClick={this.addProject}>
           Add Project
+        </button>
+        <button className="resume--button" onClick={this.delete}>
+          Delete Project
         </button>
       </div>
     );

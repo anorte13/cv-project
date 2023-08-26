@@ -1,19 +1,34 @@
 import React from "react";
+import { deleteWork } from "../functions/delete";
 import EdForm from "./helpers/educationForm";
 
 export default class Education extends React.Component {
   constructor() {
     super();
     this.state = JSON.parse(localStorage.getItem("educationExperience")) || {
-      educationBackgrounds: [],
+      educationExperience: [],
       educationHeading: "",
     };
   }
   addEducation = () => {
     this.setState((prevState) => ({
-      educationBackgrounds: [...prevState.educationBackgrounds, {}],
+      educationExperience: [
+        ...prevState.educationExperience,
+        { id: Date.now() },
+      ],
     }));
   };
+
+  delete = () => {
+    const education = [...this.state.educationExperience];
+    deleteWork(
+      education,
+      "EdDetails",
+      "educationExperience",
+      this.setState.bind(this)
+    );
+  };
+
   componentDidUpdate() {
     localStorage.setItem("educationExperience", JSON.stringify(this.state));
   }
@@ -41,11 +56,14 @@ export default class Education extends React.Component {
           </div>
           <div className="thick-line"></div>
         </div>
-        {this.state.educationBackgrounds.map((work, index) => (
+        {this.state.educationExperience.map((work, index) => (
           <EdForm key={index} id={index} />
         ))}
         <button className="resume--button" onClick={this.addEducation}>
           Add School
+        </button>
+        <button className="resume--button" onClick={this.delete}>
+          Delete Education
         </button>
       </div>
     );

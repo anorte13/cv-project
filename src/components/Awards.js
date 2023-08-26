@@ -1,4 +1,5 @@
 import React from "react";
+import { deleteWork } from "../functions/delete";
 import AwardsForm from "./helpers/awardsForm";
 
 export default class Awards extends React.Component {
@@ -11,8 +12,13 @@ export default class Awards extends React.Component {
   }
   addAward = () => {
     this.setState((prevState) => ({
-      awards: [...prevState.awards, {}],
+      awards: [...prevState.awards, { id: Date.now() }],
     }));
+  };
+
+  delete = () => {
+    const awards = [...this.state.awards];
+    deleteWork(awards, "award", "awards", this.setState.bind(this));
   };
 
   componentDidUpdate() {
@@ -47,6 +53,9 @@ export default class Awards extends React.Component {
         ))}
         <button className="resume--button" onClick={this.addAward}>
           Add Award
+        </button>
+        <button className="resume--button" onClick={this.delete}>
+          Delete Award
         </button>
       </div>
     );

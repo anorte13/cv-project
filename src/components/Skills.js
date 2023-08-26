@@ -1,4 +1,5 @@
 import React from "react";
+import { deleteWork } from "../functions/delete";
 import SkillForm from "./helpers/skillsForm";
 
 export default class Skills extends React.Component {
@@ -12,8 +13,13 @@ export default class Skills extends React.Component {
 
   addSkill = () => {
     this.setState((prevState) => ({
-      skillsSet: [...prevState.skillsSet, {}],
+      skillsSet: [...prevState.skillsSet, { id: Date.now() }],
     }));
+  };
+
+  delete = () => {
+    const skills = [...this.state.skillsSet];
+    deleteWork(skills, "skills", "skillsSet", this.setState.bind(this));
   };
 
   componentDidUpdate() {
@@ -49,6 +55,9 @@ export default class Skills extends React.Component {
         ))}
         <button className="resume--button" onClick={this.addSkill}>
           Add Skill
+        </button>
+        <button className="resume--button" onClick={this.delete}>
+          Delete Skill
         </button>
       </div>
     );
