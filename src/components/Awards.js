@@ -1,5 +1,5 @@
 import React from "react";
-import { deleteWork } from "../functions/delete";
+import { deleteWork } from "./utilites/delete";
 import AwardsForm from "./helpers/awardsForm";
 
 export default class Awards extends React.Component {

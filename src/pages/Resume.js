@@ -5,7 +5,7 @@ import Work from "../components/Work";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import Awards from "../components/Awards";
-import Generator from "../components/resumeGenerator";
+import Generator from "../components/utilites/resumeGenerator";
 
 export default class Resume extends React.Component {
   constructor() {
@@ -15,9 +15,11 @@ export default class Resume extends React.Component {
       resumeData: "",
     };
   }
+
   handleComponentClick = (componentName) => {
     this.setState({ selectedComponent: componentName });
   };
+
   renderComponent = () => {
     const { selectedComponent } = this.state;
     switch (selectedComponent) {

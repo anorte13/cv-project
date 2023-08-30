@@ -1,5 +1,5 @@
 import React from "react";
-import { deleteWork } from "../functions/delete";
+import { deleteWork } from "./utilites/delete";
 import SkillForm from "./helpers/skillsForm";
 
 export default class Skills extends React.Component {

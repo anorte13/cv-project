@@ -137,6 +137,7 @@ body {
   width: 60%;
   height: auto;
   padding: 1rem;
+  font-family: "Lusitana", serif;
 }
 .resume--title {
   display: flex;
@@ -303,4 +304,30 @@ form {
   color: #080808;
   height: 95vh;
   width: 100%;
+}
+.profile--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Lusitana", serif;
+  font-weight: 100;
+}
+.resume--profile {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  font-size: 12px;
+}
+.work--details {
+  display: flex;
+  flex-direction: column;
+}
+.resume--section--1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  font-size: 12px;
 }

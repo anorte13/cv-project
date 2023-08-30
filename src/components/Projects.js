@@ -1,5 +1,5 @@
 import React from "react";
-import { deleteWork } from "../functions/delete";
+import { deleteWork } from "./utilites/delete";
 import ProjectsForm from "./helpers/projectsForm";
 
 export default class Projects extends React.Component {
