@@ -1,6 +1,8 @@
 import React from "react";
 import ProfileSection from "../resume/profileSection";
 import WorkSection from "../resume/workSection";
+import EducationSection from "../resume/educationSection";
+import SkillSection from "../resume/skillsSection";
 
 export default class Generator extends React.Component {
   render() {
@@ -24,6 +26,19 @@ export default class Generator extends React.Component {
             if (sectionKey === "work") {
               return (
                 <WorkSection data={resumeData[sectionKey]} key={sectionKey} />
+              );
+            }
+            if (sectionKey === "education") {
+              return (
+                <EducationSection
+                  data={resumeData[sectionKey]}
+                  key={sectionKey}
+                />
+              );
+            }
+            if (sectionKey === "skills") {
+              return (
+                <SkillSection data={resumeData[sectionKey]} key={sectionKey} />
               );
             }
             return null; // If you don't want to render anything for other sections

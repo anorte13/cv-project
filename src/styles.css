@@ -322,12 +322,53 @@ form {
 .work--details {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  height: auto;
+}
+.work--details > p {
+  font-family: "Times New Roman", Times, serif;
+  margin-left: 2.5rem;
+  font-size: 15px;
 }
 .resume--section--1 {
   display: flex;
   flex-direction: row;
+  font-family: "Times New Roman", Times, serif;
   justify-content: space-between;
   margin-left: 1rem;
   margin-right: 1rem;
-  font-size: 12px;
+  margin-top: -15px;
+  margin-bottom: -15px;
+}
+.resume--section--1 > h3 {
+  font-weight: 900;
+  font-size: 17px;
+}
+.resume--section--1 > p {
+  font-weight: 100;
+  font-size: 15px;
+}
+.skill--section {
+  display: flex;
+  align-items: center;
+  font-family: "Times New Roman", Times, serif;
+  margin-bottom: -1.3rem;
+}
+.work--wrapper {
+  margin: 2rem;
+}
+.work--wrapper > h2 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
+}
+.skill--details {
+  margin-left: 1rem;
+}
+.resume--section--2 {
+  display: flex;
+  gap: 1rem;
+}
+.resume--section--2 > p {
+  font-weight: 100;
+  font-size: 15px;
 }
